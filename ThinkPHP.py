@@ -14,11 +14,11 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 header = dict()
 header[ "User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-proxy = {'http': 'http://127.0.0.1:8080'}
+#proxy = {'http': 'http://127.0.0.1:8080'}
 
 def poc(url):
     result = ''
-    req = requests.get(url,headers=header,verify=False,allow_redirects=False,proxies=proxy)
+    req = requests.get(url,headers=header,verify=False,allow_redirects=False)
     for key in req.headers:                                               #利用响应头判断
         match_key = req.headers[key].lower()
         #print match_key
